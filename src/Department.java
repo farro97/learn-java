@@ -1,16 +1,16 @@
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Department {
     private final ArrayList<Employee> employees
             = new ArrayList<>();
-    private final int max = 10;
+    private final int maxSize = 10;
 
     public void addEmployee(int id, String name, Double salary) {
         Employee employee = new Employee(id, name, salary);
-        if (size() >= max) {
-            throw new UnsupportedOperationException("Maximum Size "
-                    + max + " reached");
+        if (size() >= maxSize) {
+            System.out.println("MAX " + maxSize + " users only!");
+//            throw new UnsupportedOperationException("Maximum Size "
+//                    + maxSize + " reached");
         } else {
             employees.add(employee);
         }
@@ -37,11 +37,11 @@ public class Department {
         return total;
     }
     public double getAverageSalary() {
-        Double avgSalary = 0.0;
+        Double total = 0.0;
         for (Employee employee : employees) {
-            avgSalary += employee.getSalary();
+            total += employee.getSalary();
         }
-        return avgSalary / size();
+        return total / size();
     }
     @Override
     public String toString() {
